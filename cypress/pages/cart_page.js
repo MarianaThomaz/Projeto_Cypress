@@ -1,54 +1,54 @@
-class CartPage{
+class CartPage {
     btnAdd = '[data-test="add-to-cart-sauce-labs-backpack"]';
     btnAddCart = '.shopping_cart_link';
     lblProducts = '.title';
     lblProductsInformation = '.cart_item_label';
     btnCheckout = '[data-test="checkout"]';
 
-    verifyProducts(should){
+    verifyProducts(should) {
         cy.get(this.lblProducts).should(should);
     }
-    verifyProductsInformation(should){
+    verifyProductsInformation(should) {
         cy.get(this.lblProductsInformation).should(should);
     }
-    clickAdd(){
+    clickAdd() {
         cy.get(this.btnAdd).click();
     }
-    clickCart(){
+    clickCart() {
         cy.get(this.btnAddCart).click();
     }
-    clickCheckout(){
+    clickCheckout() {
         cy.get(this.btnCheckout).click();
     }
 
-    verifyAdd(should){
+    verifyAdd(should) {
         cy.get(this.btnAdd).should(should);
     }
 
-    verifyIfExistAdd(){
+    verifyIfExistAdd() {
         this.verifyAdd("be.exist");
     }
-  
-    verifyIfExistProductInformation(){
+
+    verifyIfExistProductInformation() {
         this.verifyProductsInformation("be.exist");
     }
-    addToCart(){
+    addToCart() {
         this.clickAdd();
     }
-    selectCart(){
+    selectCart() {
         this.clickCart();
     }
-    selectCheckout(){
+    selectCheckout() {
         this.clickCheckout();
     }
 
-    shoppingCart(){
+    shoppingCart() {
         this.addToCart(),
-        this.selectCart(),
-        this.verifyIfExistProductInformation(),
-        this.selectCheckout();
+            this.selectCart(),
+            this.verifyIfExistProductInformation(),
+            this.selectCheckout();
     }
-    
+
 }
- 
+
 export default CartPage;
